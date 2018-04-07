@@ -6,8 +6,13 @@ class JobsController < ApplicationController
         @job = Job.new
   end
     def create
-        Job.create(job_params)
-        redirect_to jobs_path
+        @job = Job.create(job_params)
+        if @job.valid?
+          redirect_to jobs_path
+        else
+          flash[:error_item] = @job.errors.full_messages
+          redirect_to new_job_path
+        end
     end
     def edit
       @job = Job.find(params[:id])
@@ -21,6 +26,9 @@ class JobsController < ApplicationController
       @job = Job.find(params[:id])
       @job.destroy
       redirect_to jobs_path
+    end
+    def show
+      @job = Job.find(params[:id])
     end
 
   private

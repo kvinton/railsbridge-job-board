@@ -1,0 +1,8 @@
+<h1>Show page</h1>
+
+
+<h3>Title: <%= @job.title %></h3>
+
+<p><b>Description: </b><%= @job.description %></p>
+
+<h5><%= link_to "Edit Posting", edit_job_path(@job)%> | <%= link_to 'Delete Posting', @job, method: :delete %></h5>
