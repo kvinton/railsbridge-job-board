@@ -1,0 +1,18 @@
+<h1>Add a job</h1>
+
+<!-- Form_for is a method in rails. form is named f.
+@job is an argument for method form_for
+@ signifies an instance variable -->
+<%= form_for @job do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description, size: '60x6' %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
